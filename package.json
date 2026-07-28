@@ -6,10 +6,11 @@
   "scripts": {
     "dev:lead": "pnpm --filter @portfolio/lead-material-acquisition dev",
     "dev:workbench": "pnpm --filter @portfolio/content-agent-workbench dev",
+    "dev:eval": "pnpm --filter @portfolio/ai-agent-eval-lab dev",
     "dev:world-cup": "pnpm --filter @portfolio/world-cup-predictor dev",
     "dev:rag": "pnpm --filter @portfolio/rag-customer-service dev",
-    "build": "pnpm --filter @portfolio/lead-material-acquisition build && pnpm --filter @portfolio/content-agent-workbench build && pnpm --filter @portfolio/world-cup-predictor build && pnpm --filter @portfolio/rag-customer-service build",
-    "typecheck": "pnpm --filter @portfolio/contracts typecheck && pnpm --filter @portfolio/core typecheck && pnpm --filter @portfolio/lead-material-acquisition typecheck && pnpm --filter @portfolio/content-agent-workbench typecheck && pnpm --filter @portfolio/world-cup-predictor typecheck && pnpm --filter @portfolio/rag-customer-service typecheck",
+    "build": "pnpm --filter @portfolio/lead-material-acquisition build && pnpm --filter @portfolio/content-agent-workbench build && pnpm --filter @portfolio/ai-agent-eval-lab build && pnpm --filter @portfolio/world-cup-predictor build && pnpm --filter @portfolio/rag-customer-service build",
+    "typecheck": "pnpm --filter @portfolio/contracts typecheck && pnpm --filter @portfolio/core typecheck && pnpm --filter @portfolio/lead-material-acquisition typecheck && pnpm --filter @portfolio/content-agent-workbench typecheck && pnpm --filter @portfolio/ai-agent-eval-lab typecheck && pnpm --filter @portfolio/world-cup-predictor typecheck && pnpm --filter @portfolio/rag-customer-service typecheck",
     "test": "pnpm --filter @portfolio/core test && pnpm --filter @portfolio/rag-customer-service test",
     "check": "pnpm typecheck && pnpm test && pnpm build"
   },
