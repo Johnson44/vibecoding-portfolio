@@ -226,6 +226,97 @@ export interface ViralAgentOutput {
   mode: DataMode;
 }
 
+export type NewsVerificationStatus = "verified" | "needs-human-check" | "conflict" | "unsupported";
+
+export interface NewsSourceRecord {
+  id: string;
+  title: string;
+  publisher: string;
+  publishedAt: string;
+  url: string;
+  keyFacts: string[];
+  scope: string;
+}
+
+export interface NewsAgentInput {
+  title: string;
+  body: string;
+  sourceIds?: string[];
+  sources?: NewsSourceRecord[];
+}
+
+export interface NewsClaim {
+  id: string;
+  text: string;
+  status: NewsVerificationStatus;
+  evidence: string[];
+  sourceIds: string[];
+  rationale: string;
+}
+
+export interface NewsAgentOutput {
+  title: string;
+  summary: string;
+  claims: NewsClaim[];
+  sources: NewsSourceRecord[];
+  confidence: number;
+  riskFlags: string[];
+  manualChecks: string[];
+  mode: DataMode;
+}
+
+export type EvalIssueType = "factual-error" | "hallucination" | "off-topic" | "format-error" | "tool-failure";
+export type EvalSeverity = "high" | "medium" | "low";
+export type EvalDimension = "task-completion" | "accuracy" | "stability" | "experience" | "paid-value";
+
+export interface AgentEvalTask {
+  id: string;
+  title: string;
+  category: "information" | "planning" | "content" | "tool-use" | "image-generation";
+  scenario: string;
+  expectedSignals: string[];
+  rubric: Array<{ dimension: EvalDimension; description: string }>;
+}
+
+export interface AgentEvalInput {
+  task: AgentEvalTask;
+  candidateA: string;
+  candidateB: string;
+}
+
+export interface EvalScore {
+  dimension: EvalDimension;
+  label: string;
+  score: number;
+  reason: string;
+}
+
+export interface EvalIssue {
+  type: EvalIssueType;
+  label: string;
+  severity: EvalSeverity;
+  evidence: string;
+  recommendation: string;
+}
+
+export interface AgentEvalCandidate {
+  label: "豆包免费版" | "豆包收费版";
+  answer: string;
+  scores: EvalScore[];
+  issues: EvalIssue[];
+  totalScore: number;
+}
+
+export interface AgentEvalReport {
+  task: AgentEvalTask;
+  candidates: [AgentEvalCandidate, AgentEvalCandidate];
+  winner: "free" | "paid" | "tie";
+  summary: string;
+  priorityIssues: EvalIssue[];
+  evaluationMethod: string[];
+  mode: DataMode;
+}
+
 export interface Dish {
   id: string;
   name: string;
@@ -307,6 +398,8 @@ export type ApiAction =
   | "educationAgent"
   | "esportsAgent"
   | "viralAgent"
+  | "newsAgent"
+  | "agentEval"
   | "generateMealPlan"
   | "analyzeMatch"
   | "createLineup"
