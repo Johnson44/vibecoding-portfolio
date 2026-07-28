@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import type { Formation, Player } from "@portfolio/contracts";
 import {
   analyzeMatch,
+  agentEvalTasks,
+  runAgentEval,
   educationAcceptanceCases,
   educationCompetitorSamples,
   educationPolicySources,
@@ -14,6 +16,7 @@ import {
   players,
   runEducationAgent,
   runEsportsAgent,
+  runNewsAgent,
   runViralAgent,
   safeServicePackages,
   teamScore,
@@ -210,5 +213,67 @@ describe("viral teardown workflow", () => {
     expect(result.source.evidenceStatus).toBe("title-only");
     expect(result.process.find((step) => step.id === "structure")?.status).toBe("needs-input");
     expect(result.nextActions.join(" ")).toContain("补充已获授权");
+  });
+});
+
+describe("news verification workflow", () => {
+  it("separates supported claims from rumors and preserves the evidence boundary", () => {
+    const result = runNewsAgent({
+      title: "台风“巴威”预警信息如何避免被误读",
+      body: "中国气象局提示，台风“巴威”预警信息需要结合发布时间和影响地区判断。网传台风“巴威”已经确定登陆上海，暂无官方来源。"
+    });
+    expect(result.claims).toHaveLength(2);
+    expect(result.claims[0]).toMatchObject({ status: "verified", sourceIds: ["news-source-weather"] });
+    expect(result.claims[1].status).toBe("needs-human-check");
+    expect(result.summary).toContain("待人工复核");
+    expect(result.riskFlags.join(" ")).toContain("传闻");
+  });
+
+  it("does not create a deterministic summary without a source", () => {
+    const result = runNewsAgent({ title: "网传消息", body: "据说某产品已经百分百通过审核。" });
+    expect(result.claims[0].status).toBe("needs-human-check");
+    expect(result.confidence).toBe(0);
+    expect(result.summary).toContain("没有足够来源");
+  });
+
+  it("returns an explicit empty-input state", () => {
+    const result = runNewsAgent({ title: "", body: "" });
+    expect(result.claims[0].status).toBe("unsupported");
+    expect(result.manualChecks.join(" ")).toContain("发布前");
+  });
+});
+
+describe("AI agent evaluation workflow", () => {
+  it("scores two candidates on five dimensions and tags overconfident output", () => {
+    const task = agentEvalTasks.find((item) => item.id === "news-brief")!;
+    const result = runAgentEval({
+      task,
+      candidateA: "预警时间与地区：需要结合发布时间和影响地区判断。官方来源：中国气象局。台风“巴威”已证实会登陆上海。",
+      candidateB: "预警时间与地区：结合发布时间和影响地区判断台风“巴威”的预警范围。官方来源：中国气象局公开信息。待核验边界：登陆地点没有原始链接，不能写成确定结论。建议编辑补充来源后再发布。"
+    });
+    expect(result.candidates[0].scores).toHaveLength(5);
+    expect(result.candidates[1].totalScore).toBeGreaterThan(result.candidates[0].totalScore);
+    expect(result.winner).toBe("paid");
+    expect(result.candidates[0].issues.map((issue) => issue.type)).toContain("hallucination");
+    expect(result.priorityIssues.length).toBeGreaterThan(0);
+  });
+
+  it("handles empty candidate answers without throwing", () => {
+    const result = runAgentEval({ task: agentEvalTasks[0], candidateA: "", candidateB: "" });
+    expect(result.candidates.every((candidate) => candidate.totalScore === 0 || candidate.totalScore < 60)).toBe(true);
+    expect(result.candidates[0].issues.some((issue) => issue.severity === "high")).toBe(true);
+  });
+
+  it("evaluates an image-generation prompt by scene, subject, environment, and composition", () => {
+    const task = agentEvalTasks.find((item) => item.id === "image-prompt")!;
+    const result = runAgentEval({
+      task,
+      candidateA: "生成一张烟雨江南女子撑伞图，画面有水乡建筑，整体清雅朦胧。",
+      candidateB: "生成一张烟雨江南女子撑伞图。烟雨江南：春日细雨中的江南水乡；女子撑伞：身穿淡青色汉服的女子；水乡建筑：白墙黛瓦、小桥和乌篷船；构图与光影：竖幅中景、侧光、浅景深，写实国风。"
+    });
+    expect(task.category).toBe("image-generation");
+    expect(result.candidates[1].totalScore).toBeGreaterThan(result.candidates[0].totalScore);
+    expect(result.winner).toBe("paid");
+    expect(result.candidates[1].scores.find((score) => score.dimension === "task-completion")?.score).toBe(100);
   });
 });
