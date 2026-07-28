@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-server/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.cloudbase/
+data/
+tmp/
+*.sqlite
+*.sqlite-journal
+
+# Local test uploads and generated indexes
+apps/rag-customer-service/data/
+apps/rag-customer-service/tmp/
