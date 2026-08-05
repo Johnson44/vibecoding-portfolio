@@ -1,0 +1,16 @@
+page {
+  background: #eeeeee;
+  color: #111111;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  line-height: normal;
+}
+
+button::after {
+  border: 0;
+}
