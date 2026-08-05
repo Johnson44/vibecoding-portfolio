@@ -1,0 +1,176 @@
+.page-shell {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20rpx 16rpx 48rpx;
+}
+
+.poster-card {
+  width: 100%;
+  max-width: 680rpx;
+  min-height: 1240rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #c8c8c8;
+  border-radius: 22rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 32rpx rgba(0, 0, 0, .12);
+}
+
+.poster-topbar {
+  position: relative;
+  z-index: 3;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, .96);
+}
+
+.poster-title {
+  max-width: 420rpx;
+  overflow: hidden;
+  color: #050505;
+  font-size: 29rpx;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-button {
+  position: absolute;
+  left: 22rpx;
+  width: 62rpx;
+  height: 62rpx;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.home-roof {
+  position: absolute;
+  top: 18rpx;
+  left: 18rpx;
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 4rpx 4rpx 7rpx 7rpx;
+  background: #000000;
+  transform: rotate(45deg);
+}
+
+.home-body {
+  position: absolute;
+  top: 27rpx;
+  left: 20rpx;
+  z-index: 1;
+  width: 23rpx;
+  height: 18rpx;
+  border-radius: 2rpx;
+  background: #000000;
+}
+
+.window-actions {
+  position: absolute;
+  right: 14rpx;
+  display: flex;
+  align-items: center;
+  width: 174rpx;
+  height: 62rpx;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  border-radius: 34rpx;
+  background: #ffffff;
+}
+
+.action-dots { width: 70rpx; text-align: center; font-size: 30rpx; font-weight: 900; letter-spacing: 3rpx; }
+.action-line { width: 1px; height: 36rpx; background: #dddddd; }
+.action-minus { width: 22rpx; height: 4rpx; margin-left: 22rpx; background: #111111; }
+.action-circle { width: 25rpx; height: 25rpx; margin-left: 22rpx; border: 5rpx solid #111111; border-radius: 50%; }
+
+.poster-body {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.image-slot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .78);
+  text-align: center;
+}
+
+.main-image-slot {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: #ffffff;
+}
+
+.image-slot-square {
+  right: 30rpx;
+  bottom: 36rpx;
+  z-index: 2;
+  width: 190rpx;
+  height: 190rpx;
+  /* 右下角图片严格固定为 1:1 正方形。 */
+  aspect-ratio: 1 / 1;
+  border: 3rpx solid rgba(17, 17, 17, .42);
+  background: #ffffff;
+}
+
+.slot-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.slot-label {
+  display: block;
+  color: rgba(17, 17, 17, .62);
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.slot-note {
+  display: block;
+  max-width: 420rpx;
+  margin-top: 10rpx;
+  color: rgba(17, 17, 17, .48);
+  font-size: 20rpx;
+  line-height: 1.5;
+}
+
+.framework-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680rpx;
+  box-sizing: border-box;
+  margin: 22rpx auto 0;
+  padding: 0 4rpx;
+  color: #666666;
+  font-size: 22rpx;
+}
+
+.admin-entry {
+  width: 176rpx;
+  padding: 12rpx 0;
+  border: 1px solid #111111;
+  border-radius: 8rpx;
+  background: #ffffff;
+  color: #111111;
+  font-size: 22rpx;
+}

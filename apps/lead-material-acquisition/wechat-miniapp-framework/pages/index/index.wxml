@@ -1,0 +1,44 @@
+<view class="page-shell">
+  <view class="poster-card">
+    <view class="poster-topbar">
+      <view class="home-button" aria-label="首页">
+        <view class="home-roof"></view>
+        <view class="home-body"></view>
+      </view>
+      <text class="poster-title">{{title}}</text>
+      <view class="window-actions" aria-hidden="true">
+        <view class="action-dots"><text>•••</text></view>
+        <view class="action-line"></view>
+        <view class="action-minus"></view>
+        <view class="action-circle"></view>
+      </view>
+    </view>
+
+    <view class="poster-body">
+      <view class="main-image-slot image-slot">
+        <block wx:if="{{assets.mainImage}}">
+          <image class="slot-image" src="{{assets.mainImage}}" mode="widthFix" />
+        </block>
+        <block wx:else>
+          <text class="slot-label">主图</text>
+          <text class="slot-note">这里是除右下角方块以外的全部内容</text>
+        </block>
+      </view>
+
+      <view wx:if="{{assets.bottomRightImage}}" class="bottom-right-slot image-slot image-slot-square">
+        <block wx:if="{{assets.bottomRightImage}}">
+          <image class="slot-image" src="{{assets.bottomRightImage}}" mode="aspectFill" />
+        </block>
+        <block wx:else>
+          <text class="slot-label">右下角图片</text>
+          <text class="slot-note">固定 1:1</text>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="framework-note">
+    <text>主图已配置，右下角图片可选</text>
+    <button class="admin-entry" bindtap="openAdmin">管理员入口</button>
+  </view>
+</view>
