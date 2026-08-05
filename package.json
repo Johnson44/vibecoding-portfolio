@@ -9,8 +9,10 @@
     "dev:eval": "pnpm --filter @portfolio/ai-agent-eval-lab dev",
     "dev:world-cup": "pnpm --filter @portfolio/world-cup-predictor dev",
     "dev:rag": "pnpm --filter @portfolio/rag-customer-service dev",
-    "build": "pnpm --filter @portfolio/lead-material-acquisition build && pnpm --filter @portfolio/content-agent-workbench build && pnpm --filter @portfolio/ai-agent-eval-lab build && pnpm --filter @portfolio/world-cup-predictor build && pnpm --filter @portfolio/rag-customer-service build",
-    "typecheck": "pnpm --filter @portfolio/contracts typecheck && pnpm --filter @portfolio/core typecheck && pnpm --filter @portfolio/lead-material-acquisition typecheck && pnpm --filter @portfolio/content-agent-workbench typecheck && pnpm --filter @portfolio/ai-agent-eval-lab typecheck && pnpm --filter @portfolio/world-cup-predictor typecheck && pnpm --filter @portfolio/rag-customer-service typecheck",
+    "dev:meal": "pnpm --filter @portfolio/meal-web dev",
+    "dev:anma": "pnpm --filter @portfolio/anma-kitchen dev",
+    "build": "pnpm --filter @portfolio/lead-material-acquisition build && pnpm --filter @portfolio/content-agent-workbench build && pnpm --filter @portfolio/ai-agent-eval-lab build && pnpm --filter @portfolio/world-cup-predictor build && pnpm --filter @portfolio/rag-customer-service build && pnpm --filter @portfolio/meal-web build && pnpm --filter @portfolio/anma-kitchen build",
+    "typecheck": "pnpm --filter @portfolio/contracts typecheck && pnpm --filter @portfolio/core typecheck && pnpm --filter @portfolio/lead-material-acquisition typecheck && pnpm --filter @portfolio/content-agent-workbench typecheck && pnpm --filter @portfolio/ai-agent-eval-lab typecheck && pnpm --filter @portfolio/world-cup-predictor typecheck && pnpm --filter @portfolio/rag-customer-service typecheck && pnpm --filter @portfolio/meal-web typecheck && pnpm --filter @portfolio/anma-kitchen typecheck",
     "test": "pnpm --filter @portfolio/core test && pnpm --filter @portfolio/rag-customer-service test",
     "check": "pnpm typecheck && pnpm test && pnpm build"
   },

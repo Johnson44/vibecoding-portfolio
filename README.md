@@ -13,10 +13,10 @@
 | [AI Agent Eval Lab](apps/ai-agent-eval-lab/README.md) | [打开公网 Demo](https://zsjohnson.site/ai-agent-eval-lab/) | [查看源码](apps/ai-agent-eval-lab/) |
 | [世界杯预测与阵容社区 · World XI Lab](apps/world-cup-predictor/README.md) | [打开公网 Demo](https://zsjohnson.site/world-cup/) | [查看源码](apps/world-cup-predictor/) |
 | [RAG 客服机器人 · 知识助手](apps/rag-customer-service/README.md) | [打开公网演示](https://zsjohnson.site/rag/) | [查看源码](apps/rag-customer-service/) |
-| 点点轻食 · AI 点餐网站 | [打开公网网站](https://zsjohnson.site/) | 源码暂在本地工程 `apps/meal-web` |
-| 俺妈厨房 · 家庭点餐网站 | [打开公网网站](https://zsjohnson.site/anma/) | 源码暂在本地工程 `apps/anma-kitchen` |
+| [点点轻食 · AI 点餐网站](apps/meal-web/README.md) | [打开公网网站](https://zsjohnson.site/) | [查看源码](apps/meal-web/) |
+| [俺妈厨房 · 家庭点餐网站](apps/anma-kitchen/README.md) | [打开公网网站](https://zsjohnson.site/anma/) | [查看源码](apps/anma-kitchen/) |
 
-> 以上两个补充项目已经改为公网入口，直接点击即可体验；源码当前保留在本地工程中，未纳入本仓库。
+> 以上两个项目已经补充源码目录并改为公网入口，直接点击即可体验。
 
 ## 重点项目：AI Agent Eval Lab
 
@@ -56,6 +56,12 @@ pnpm dev:world-cup
 
 # RAG 客服机器人
 pnpm dev:rag
+
+# 点点轻食
+pnpm dev:meal
+
+# 俺妈厨房
+pnpm dev:anma
 ```
 
 运行全量质量检查：
