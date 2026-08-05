@@ -8,11 +8,15 @@
 
 | 项目 | 在线 / 本地体验 | 源码与说明 |
 | --- | --- | --- |
-| [手机号留资资料领取站](apps/lead-material-acquisition/README.md) | [打开领取资料网站](https://lingshiziliaoku-d7fi5hsic461a61a-1455113928.ap-shanghai.app.tcloudbase.com/) | [查看源码](apps/lead-material-acquisition/) |
-| [内容运营 Agent 工作台（四模块）](apps/content-agent-workbench/README.md) | [打开 Agent 工作台](https://lingshiziliaoku-d7fi5hsic461a61a-1455113928.tcloudbaseapp.com/education-agent/) | [查看源码](apps/content-agent-workbench/) |
-| [AI Agent Eval Lab](apps/ai-agent-eval-lab/README.md) | 本地运行，默认端口 `5175` | [查看源码](apps/ai-agent-eval-lab/) |
-| [世界杯预测 · World XI Lab](apps/world-cup-predictor/README.md) | 暂无当前可验证的公网部署 | [查看源码](apps/world-cup-predictor/) |
-| [RAG 客服机器人 · 本地规则增强原型](apps/rag-customer-service/README.md) | 本地运行 | [查看源码](apps/rag-customer-service/) |
+| [手机号留资资料领取站](apps/lead-material-acquisition/README.md) | [打开领取资料网站](https://zsjohnson.site/lead-material-acquisition/) | [查看源码](apps/lead-material-acquisition/) |
+| [四模块内容运营 Agent 工作台](apps/content-agent-workbench/README.md) | [打开统一入口](https://zsjohnson.site/content-agent/) | [查看源码](apps/content-agent-workbench/) |
+| [AI Agent Eval Lab](apps/ai-agent-eval-lab/README.md) | [打开公网 Demo](https://zsjohnson.site/ai-agent-eval-lab/) | [查看源码](apps/ai-agent-eval-lab/) |
+| [世界杯预测与阵容社区 · World XI Lab](apps/world-cup-predictor/README.md) | [打开公网 Demo](https://zsjohnson.site/world-cup/) | [查看源码](apps/world-cup-predictor/) |
+| [RAG 客服机器人 · 知识助手](apps/rag-customer-service/README.md) | [打开公网演示](https://zsjohnson.site/rag/) | [查看源码](apps/rag-customer-service/) |
+| 点点轻食 · AI 点餐网站 | [打开公网网站](https://zsjohnson.site/) | 源码暂在本地工程 `apps/meal-web` |
+| 俺妈厨房 · 家庭点餐网站 | [打开公网网站](https://zsjohnson.site/anma/) | 源码暂在本地工程 `apps/anma-kitchen` |
+
+> 以上两个补充项目已经改为公网入口，直接点击即可体验；源码当前保留在本地工程中，未纳入本仓库。
 
 ## 重点项目：AI Agent Eval Lab
 
