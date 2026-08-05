@@ -4,7 +4,7 @@
 
 ## 在线 Demo
 
-[打开 Agent 工作台](https://lingshiziliaoku-d7fi5hsic461a61a-1455113928.tcloudbaseapp.com/education-agent/)
+[打开统一 Agent 工作台](https://zsjohnson.site/content-agent/)
 
 ## 项目亮点
 
@@ -34,4 +34,4 @@ pnpm install
 pnpm dev:workbench
 ```
 
-打开 `http://localhost:5173/`，使用本地演示模式体验四个 Agent 模块。新闻核查入口为 `/news-agent`。
+打开 `http://localhost:5173/`，使用本地演示模式体验四个 Agent 模块。公网部署使用 `/content-agent/` 作为统一入口，进入后通过左侧导航切换四个模块。
