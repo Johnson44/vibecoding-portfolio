@@ -1,0 +1,37 @@
+<view class="admin-page">
+  <view class="admin-header">
+    <text class="eyebrow">CONTENT CONTROL</text>
+    <text class="admin-title">图片管理框架</text>
+    <text class="admin-subtitle">当前是本机预览版，后续接入云存储后可供所有管理员使用。</text>
+  </view>
+
+  <view class="admin-list">
+    <view class="upload-card" wx:for="{{uploadItems}}" wx:key="key">
+      <view class="upload-copy">
+        <text class="upload-title">{{item.title}}</text>
+        <text class="upload-ratio">{{item.ratio}}</text>
+      </view>
+
+      <view class="upload-preview {{item.key === 'bottomRightImage' ? 'upload-preview-square' : ''}}">
+        <image wx:if="{{item.path}}" class="upload-image" src="{{item.path}}" mode="aspectFill" />
+        <text wx:else class="upload-empty">空</text>
+      </view>
+
+      <view class="upload-actions">
+        <button class="outline-button" data-key="{{item.key}}" bindtap="chooseImage">选择图片</button>
+        <button wx:if="{{item.path}}" class="text-button" data-key="{{item.key}}" bindtap="clearImage">清空</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{message}}" class="admin-message">{{message}}</view>
+
+  <view class="admin-actions">
+    <button class="primary-button" bindtap="saveConfig" loading="{{saving}}">保存配置</button>
+    <button class="secondary-button" bindtap="previewHome">返回首页预览</button>
+  </view>
+
+  <view class="admin-footnote">
+    <text>管理员权限、云存储和多设备同步将在下一步接入。</text>
+  </view>
+</view>
