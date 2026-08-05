@@ -4,7 +4,7 @@
 
 ## 在线 Demo
 
-[打开领取资料网站](https://lingshiziliaoku-d7fi5hsic461a61a-1455113928.ap-shanghai.app.tcloudbase.com/)
+[打开领取资料网站](https://zsjohnson.site/lead-material-acquisition/)
 
 ## 项目亮点
 
